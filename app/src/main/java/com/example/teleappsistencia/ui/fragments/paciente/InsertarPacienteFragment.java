@@ -17,8 +17,8 @@ import com.example.teleappsistencia.modelos.Paciente;
 import com.example.teleappsistencia.modelos.Persona;
 import com.example.teleappsistencia.modelos.Terminal;
 import com.example.teleappsistencia.modelos.TipoModalidadPaciente;
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.Utilidad;
 

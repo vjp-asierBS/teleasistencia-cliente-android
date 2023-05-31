@@ -15,12 +15,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.teleappsistencia.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
 import com.example.teleappsistencia.R;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.dialogs.AlertDialogBuilder;
 import com.example.teleappsistencia.utilidades.Utilidad;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.modelos.Grupo;
 import com.example.teleappsistencia.modelos.Usuario;
 

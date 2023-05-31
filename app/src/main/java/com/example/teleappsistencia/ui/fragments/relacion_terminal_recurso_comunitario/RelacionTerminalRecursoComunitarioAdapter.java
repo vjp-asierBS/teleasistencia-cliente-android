@@ -13,9 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.teleappsistencia.MainActivity;
 import com.example.teleappsistencia.R;
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
-import com.example.teleappsistencia.ui.fragments.relacion_paciente_persona.ListarRelacionPacientePersonaFragment;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.Utilidad;
 import com.example.teleappsistencia.modelos.RecursoComunitario;

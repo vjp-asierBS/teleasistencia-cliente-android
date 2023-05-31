@@ -14,9 +14,8 @@ import com.example.teleappsistencia.MainActivity;
 import com.example.teleappsistencia.R;
 import com.example.teleappsistencia.modelos.Alarma;
 import com.example.teleappsistencia.modelos.TipoAlarma;
-import com.example.teleappsistencia.modelos.Token;
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.Utilidad;
 
@@ -158,5 +157,11 @@ public class AlarmaAdapter extends RecyclerView.Adapter<AlarmaAdapter.AlarmaView
         viewHolder.txtCardEstadoAlarma.setText(Constantes.ESTADO_DP_SP + alarma.getEstado_alarma());
         viewHolder.txtCardFechaRegistroAlarma.setText(Constantes.FECHA_DP_SP + alarma.getFecha_registro());
         viewHolder.txtCardTipoAlarma.setText(Constantes.TIPO_DP_SP + tipo.getNombre());
+
+        if(tipo != null){ // Control de error si el nombre es nulo.
+            viewHolder.txtCardTipoAlarma.setText(Constantes.TIPO_DP_SP + tipo.getNombre());
+        }else{
+            viewHolder.txtCardTipoAlarma.setText(Constantes.TIPO_DP_SP + Constantes.ESPACIO_EN_BLANCO);
+        }
     }
 }

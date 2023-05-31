@@ -1,7 +1,6 @@
 package com.example.teleappsistencia.ui.fragments.terminal;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +15,11 @@ import com.example.teleappsistencia.MainActivity;
 import com.example.teleappsistencia.R;
 import com.example.teleappsistencia.modelos.Terminal;
 import com.example.teleappsistencia.modelos.TipoVivienda;
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
-import com.example.teleappsistencia.ui.fragments.paciente.ListarPacienteFragment;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.Utilidad;
 import com.example.teleappsistencia.modelos.Paciente;
-import com.example.teleappsistencia.modelos.TipoModalidadPaciente;
-import com.example.teleappsistencia.ui.fragments.paciente.ConsultarPacienteFragment;
-import com.example.teleappsistencia.ui.fragments.paciente.ModificarPacienteFragment;
 
 import java.util.List;
 

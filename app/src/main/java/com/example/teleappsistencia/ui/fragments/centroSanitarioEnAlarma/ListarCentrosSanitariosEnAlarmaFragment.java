@@ -12,12 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.teleappsistencia.R;
-import com.example.teleappsistencia.modelos.Alarma;
 import com.example.teleappsistencia.modelos.CentroSanitarioEnAlarma;
-import com.example.teleappsistencia.modelos.Token;
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
-import com.example.teleappsistencia.ui.fragments.alarma.AlarmaAdapter;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.Utilidad;
 

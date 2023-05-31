@@ -1,13 +1,7 @@
 package com.example.teleappsistencia.modelos;
 
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
-
 import java.io.Serializable;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 /**
  * Clase POJO "Token" utilizada para parsear la respuesta JSON del servidor.
  */

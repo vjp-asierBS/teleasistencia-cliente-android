@@ -1,7 +1,6 @@
 package com.example.teleappsistencia.ui.fragments.relacion_terminal_recurso_comunitario;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.teleappsistencia.servicios.APIService;
-import com.example.teleappsistencia.servicios.ClienteRetrofit;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.ClienteRetrofit;
 import com.example.teleappsistencia.R;
 import com.example.teleappsistencia.utilidades.Constantes;
 import com.example.teleappsistencia.utilidades.Utilidad;
 import com.example.teleappsistencia.modelos.RelacionTerminalRecursoComunitario;
-import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.gson.internal.LinkedTreeMap;
 
 import java.util.ArrayList;
