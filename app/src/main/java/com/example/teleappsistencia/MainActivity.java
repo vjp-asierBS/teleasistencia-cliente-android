@@ -7,13 +7,18 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.teleappsistencia.modelos.Usuario;
-import com.example.teleappsistencia.servicios.APIService;
+import com.example.teleappsistencia.ui.fragments.agenda.ListarAgendasDeHoy;
+import com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios.APIService;
 import com.example.teleappsistencia.ui.fragments.alarma.InsertarAlarmaFragment;
 import com.example.teleappsistencia.ui.fragments.alarma.ListarAlarmasDeHoyFragment;
 import com.example.teleappsistencia.ui.fragments.alarma.ListarAlarmasFragment;
@@ -124,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         /* Iniciamos el servicio de notificación de Alarmas. Sólo para usuarios no admin (Teleoperadores) */
-        if(!Utilidad.isAdmin()) {
+        if (!Utilidad.isAdmin()) {
             Utilidad.iniciarEscuchaAlarmas(this);
         }
 
@@ -160,7 +165,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             textView_nombre_usuarioLogged.setText(usuario.getFirstName() + Constantes.ESPACIO_EN_BLANCO + usuario.getLastName());
             textView_email_usuarioLogged.setText(usuario.getEmail());
 
-            if(usuario.getImagen() != null) {  // Si el usuario cuenta con una imagen.
+            if (usuario.getImagen() != null) {  // Si el usuario cuenta con una imagen.
                 String img_url = usuario.getImagen().getUrl(); // Recogo la imagen del usuario.
 
                 Picasso.get()       // LLamo a Picasso para poder asignar una imagen por URL.
@@ -239,7 +244,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         menuModel = new MenuModel(getResources().getString(R.string.menu_alarma), true, true, null);
         headerList.add(menuModel);
 
-        if(Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán esta opcion.
+        if (Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán esta opcion.
             childModelsList.add(new MenuModel(childNames[0], false, false, new InsertarAlarmaFragment()));
         }
         childModelsList.add(new MenuModel(childNames[1], false, false, new ListarAlarmasFragment()));
@@ -249,7 +254,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -276,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -289,7 +294,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -307,7 +312,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Menu Dispositivos Auxiliares.
-        if(Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
+        if (Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
             childModelsList = new ArrayList<>();
             menuModel = new MenuModel(getResources().getString(R.string.menu_dispositivos_auxiliares_terminal), true, true, null);
             headerList.add(menuModel);
@@ -322,7 +327,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Menu Grupos.
-        if(Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
+        if (Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
             childModelsList = new ArrayList<>();
             menuModel = new MenuModel(getResources().getString(R.string.menu_grupos), true, true, null);
             headerList.add(menuModel);
@@ -337,7 +342,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Menu Histórico Tipo Situación.
-        if(Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
+        if (Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
             childModelsList = new ArrayList<>();
             menuModel = new MenuModel(getResources().getString(R.string.menu_historico_tipo_situacion), true, true, null);
             headerList.add(menuModel);
@@ -360,7 +365,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -375,7 +380,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (menuModel.hasChildren()) { // Si la opción principal tiene sub-opciones.
             childList.put(menuModel, childModelsList); // Se le añade al atributo con todas las opciones,
             // la opción principal y sus sub-opciones.
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -388,7 +393,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -406,6 +411,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             childList.put(menuModel, null);
         }
 
+        // Menu Agendas.
+        menuModel = new MenuModel(getResources().getString(R.string.menu_agendas), false, false, new ListarAgendasDeHoy()); // Se crea una opción pricipal.
+        headerList.add(menuModel);  // Se añe a la lista de opciones principales.
+
         // Menu Recursos Comunitarios en Alarma.
         childModelsList = new ArrayList<>();
         menuModel = new MenuModel(getResources().getString(R.string.menu_recursos_comunitarios_en_alarma), true, true, null);
@@ -415,7 +424,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -428,7 +437,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -441,7 +450,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -454,7 +463,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -467,7 +476,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -480,7 +489,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (menuModel.hasChildren()) {
             childList.put(menuModel, childModelsList);
-        } else{
+        } else {
             childList.put(menuModel, null);
         }
 
@@ -499,7 +508,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Menu Tipo Situación.
-        if(Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
+        if (Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
             childModelsList = new ArrayList<>();
             menuModel = new MenuModel(getResources().getString(R.string.menu_tipo_situacion), true, true, null);
             headerList.add(menuModel);
@@ -514,7 +523,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Menu Tipo Vivienda.
-        if(Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
+        if (Utilidad.isAdmin()) {    // Si el usuario es admin se mostrarán estas opciones.
             childModelsList = new ArrayList<>();
             menuModel = new MenuModel(getResources().getString(R.string.menu_tipo_vivienda), true, true, null);
             headerList.add(menuModel);
@@ -557,7 +566,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         // Menu Usuarios.
-        if(Utilidad.isAdmin()) {  // Si el usuario es admin se mostrarán estas opciones.
+        if (Utilidad.isAdmin()) {  // Si el usuario es admin se mostrarán estas opciones.
             childModelsList = new ArrayList<>();
             menuModel = new MenuModel(getResources().getString(R.string.menu_usuarios), true, true, null);
             headerList.add(menuModel);
@@ -581,23 +590,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         expandableListAdapter = new ExpandableListAdapter(this, headerList, childList);
         expandableListView.setAdapter(expandableListAdapter);
 
-        /*
         // Aquí se define que pasará cuando el usuario pulse en una de las opciones principales.
         expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                MenuModel menuModel = headerList.get(groupPosition);
+                Fragment fragment = menuModel.getFragment();
 
+                // Carga el fragmento si existe
+                if (fragment != null) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.replace(R.id.main_fragment, fragment);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                }
                 if (headerList.get(groupPosition).isGroup()) {
                     if (!headerList.get(groupPosition).hasChildren()) {
-                        // En este caso no hay nada que hacer al pulsar en una opción principal.
+                        // En este caso no hay nada que hacer al pulsar en una opciÃ³n principal.
                     }
                 }
-
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
                 return false;
             }
         });
-        */
-
         // Aquí se define que pasará cuando el usuario pulse en una de las sub-opciones.
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override

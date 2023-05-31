@@ -2,7 +2,17 @@ package com.example.teleappsistencia.utilidades;
 
 public class Constantes {
     /* Direcciones */
-    public static final String DIRECCION_WEBSOCKET = "ws://api-rest.teleasistencia.iesvjp.es/ws/socket-server/";
+
+
+    /* Se utiliza:
+     * "http://localhost:8000/" con dispositivos físicos
+     * con el emulador se ha de utilizar "http://10.0.2.2:8000/"
+     * En producción (1): http://api-rest.teleasistencia.iesvjp.es/
+     *
+     * (1) en próxima convocatoria se añadirá conexión mediante https */
+    public static final String API_BASE_URL = "http://api-rest-teleasistencia-p1.iesvjp.es/";
+
+    public static final String DIRECCION_WEBSOCKET = "ws://api-rest-teleasistencia-p1.iesvjp.es/ws/socket-server/";
 
     /* Constantes comunes */
     public final static String BEARER_ESPACIO = "Bearer ";
@@ -17,6 +27,7 @@ public class Constantes {
     public final static String RECURSO_COMUNITARIO_OBJETO = "recursoComunitario";
     public final static String ARRAYLIST_TIPO_CENTRO_SANITARIO = "ArrayList<TipoCentroSanitario>";
     public final static String ARRAYLIST_TIPO_RECURSO_COMUNITARIO = "ArrayList<TipoRecursoComunitario>";
+    public static final String RUTA_MODELOS = "com.example.teleappsistencia.modelos.";
 
     /* Constantes Mensajes Peticiones */
     public static final String MENSAJE_INSERTAR_TIPO_CENTRO_SANITARIO = "Se ha insertado el tipo de centro sanitario satisfactoriamente.";
@@ -63,13 +74,6 @@ public class Constantes {
      * Constantes de la API.
      */
 
-    /* Se utiliza:
-         * "http://localhost:8000/" con dispositivos físicos
-         * con el emulador se ha de utilizar "http://10.0.2.2:8000/"
-         * En producción (1): http://api-rest.teleasistencia.iesvjp.es/
-         *
-         * (1) en próxima convocatoria se añadirá conexión mediante https */
-    public static final String API_BASE_URL = "http://api-rest.teleasistencia.iesvjp.es/";
     public static final String TOKEN_BEARER = "Bearer ";
     public static final String FORMATEADOR_API = "yyyy-MM-dd'T'HH:mm:ssZ";
 
@@ -234,7 +238,9 @@ public class Constantes {
 
     /* Constantes de argumentos para pasar datos a los Fragments */
     public static final String ARG_ALARMA = "Alarma";
+    public static final String ARG_AGENDA = "Agenda";
     public static final String ARG_TIPOALARMA = "TipoAlarma";
+    public static final String ARG_TIPOAGENDA = "TipoAlarma";
     public static final String ARG_PERSONACONTACTOEA = "PCEA";
     public final static String ARG_CLASIFICACIONALARMA = "ClasificacionAlarma";
     public static final String ARG_CENTROSANITARIOEA = "CSEA";
@@ -265,6 +271,10 @@ public class Constantes {
     public static final String ID_TERMINAL_DP_SP = "ID Terminal: ";
     public static final String PACIENTE_DP_SP = "Paciente: ";
     public static final String TELEFONO_DP_SP = "Teléfono: ";
+    public static final String PRIORIDAD_DP_SP = "Prioridad: ";
+    public static final String APELLIDOS_DP_SP = "Apellidos: ";
+    public static final String TIPO_AGENDA_DP_SP = "Tipo Agenda: ";
+    public static final String NUM_EXPEDIENTE_DS_SP = "Número Espediente: ";
 
     /* Constantes Simbolos Varios */
     public final static String ESPACIO_GUION_ESPACIO = " - ";
@@ -280,17 +290,22 @@ public class Constantes {
     public final static String RECURSO_COMUNITARIO = "RecursoComunitario";
     public final static String CENTRO_SANITARIO = "CentroSanitario";
     public final static String TIPOALARMA = "TipoAlarma";
+    public final static String TIPOAGENDA = "TipoAgenda";
     public final static String TELEOPERADOR = "Teleoperador";
     public final static String PACIENTE = "Paciente";
+    public final static String AL_AGENDA = "ArrayList<Agenda>";
     public final static String AL_TIPO_ALARMA = "ArrayList<TipoAlarma>";
+    public final static String AL_TIPO_AGENDA = "ArrayList<TipoAgenda>";
     public final static String AL_TERMINAL = "ArrayList<Terminal>";
     public final static String AL_PACIENTE = "ArrayList<Paciente>";
     public final static String AL_ALARMA = "ArrayList<Alarma>";
+    public final static String AL_PERSONA = "ArrayList<Persona>";
     public final static String AL_CLASIFICACION_ALARMA= "ArrayList<ClasificacionAlarma>";
     public final static String AL_CENTRO_SANITARIO_ALARMA = "ArrayList<CentroSanitarioEnAlarma>";
     public final static String AL_PERSONAS_CONTACTO_EN_ALARMA = "ArrayList<PersonaContactoEnAlarma>";
     public final static String AL_RECURSOS_COMUNITARIOS_EN_ALARMA = "ArrayList<RecursoComunitarioEnAlarma>";
     public static final String ALARMA = "Alarma";
+    public static final String AGENDA = "Agenda";
     public static final String CLASIFICACION_ALARMA = "ClasificacionAlarma";
     public static final String CONTACTO = "Contacto";
     public static final String AL_CONTACTOS = "ArrayList<Contacto>";
@@ -301,6 +316,8 @@ public class Constantes {
 
     /* Constantes Mensajes Peticiones */
     public final static String ALARMA_BORRADA = "Alarma borrada correctamente.";
+    public final static String AGENDA_BORRADA = "Agenda borrada correctamente.";
+    public final static String TIPO_AGENDA_BORRADO = "Tipo Agenda borrado correctamente.";
     public final static String PERSONA_CONTACTO_EN_ALARMA_BORRADA = "Persona Contacto En Alarma borrado correctamente.";
     public final static String RECURSO_EN_ALARMA_BORRADO = "Recurso Comunitario En Alarma borrado correctamente.";
     public final static String TIPO_ALARMA_BORRADO = "Tipo de Alarma borrada correctamente.";
@@ -310,6 +327,9 @@ public class Constantes {
     public final static String ERROR_ = "Error: ";
     public final static String ALARMA_GUARDADA = "Alarma guardada con éxito";
     public final static String ALARMA_MODIFICADA = "Alarma modificada con éxito";
+    public final static String AGENDA_GUARDADA = "Agenda guardada con éxito";
+    public final static String AGENDA_MODIFICADA = "Agenda modificada con éxito";
+    public final static String AGENDA_RESUELTA = "Agenda resuelta con éxito";
     public final static String ERROR_MODIFICACION = "Error en la modificación: ";
     public final static String PISTA_TELEOPERADOR_ID = " (Pista: ¿existe Teleoperador con ese ID?)";
     public final static String MODIFICADO_CON_EXITO = "Modificado con éxito";
@@ -330,6 +350,8 @@ public class Constantes {
     public static final String DEBES_INTRODUCIR_ID_PERSONA = "Debes introducir un ID de Persona";
     public static final String DEBES_INTRODUCIR_NOMBRE = "Debes introducir un nombre";
     public static final String DEBES_INTRODUCIR_CODIGO_TIPO_ALARMA = "Debes introducir el código del Tipo de Alarma.";
+    public static final String DEBES_INTRODUCIR_CODIGO_TIPO_AGENDA = "Debes introducir el código del Tipo de Agenda.";
+    public static final String DEBES_INTRODUCIR_IMPORTANCIA_TIPO_AGENDA = "Debes introducir la importancia del Tipo de Agenda.";
     public static final String DEBES_INTRODUCIR_ID_RECURSO_COMUNITARIO = "Debes introducir un ID de Recurso Comunitario";
     public static final String DEBES_INTRODUCIR_CODIGO_2_3_LETRAS = "Debes introducir un Código de 2 o 3 letras.";
 

@@ -19,6 +19,7 @@
     <string name="menu_tipo_vivienda">Tipo de vivienda</string>
     <string name="menu_tipo_situacion">Tipo de situación</string>
     <string name="menu_historico_tipo_situacion">Histórico tipo de situación</string>
+    <string name="menu_agendas">Agendas</string>
 
     <!-- Nombres de los menus -->
     <string name="menu_tipo_alarma">Tipo Alarma</string>
@@ -400,6 +401,37 @@
     <string name="barrerasArquitectonicasHint">Barreras arquitectonicas...</string>
     <string name="titulo_modificar_terminal">Modificar terminal:</string>
     <string name="texto_insertar_paciente">Elige el paciente a asociar:</string>
+
+    <!-- String Agendas -->
+    <string name="nueva_agenda">Nueva Agenda</string>
+    <string name="editar_agenda">Editar Agenda</string>
+    <string name="resolver_agenda">Resolver Agenda</string>
+    <string name="info_agenda">Información de agenda</string>
+    <string name="agendas">Agendas</string>
+    <string name="nombre_usuario">Nombre</string>
+    <string name="apellidos_usuario">Apellidos</string>
+    <string name="num_expediente">Nº Expediente</string>
+    <string name="tipos">Tipos</string>
+    <string name="resolver">Resolver</string>
+    <string name="tipo_agenda">Tipo Agenda</string>
+    <string name="prioridad">Prioridad</string>
+    <string name="fecha_agenda">Fecha</string>
+    <string name="fecha_prevista">Fecha prevista</string>
+    <string name="fecha_resolución">Fecha resolución</string>
+    <string name="hora">Hora</string>
+    <string name="observaciones_agenda">Observaciones</string>
+    <string name="nuevo_tipo">Nuevo Tipo</string>
+    <string name="borrar_agenda">Borrar</string>
+    <string name="persistir_agenda">Persistir</string>
+    <string name="motivo_resolucion">Motivo de la resolución</string>
+
+    <!-- String Tipos Agendas -->
+    <string name="crear_tipo_agenda">Crear Tipo Agenda</string>
+    <string name="modificar_tipo_agenda">Modificar Tipo Agenda</string>
+    <string name="nombre_tipo_agenda">Nombre:</string>
+    <string name="codigo_tipo_agenda">Codigo:</string>
+    <string name="importancia">Importancia:</string>
+
     <!-- Layouts Jorge -->
     <string name="nueva_alarma">¡Nueva Alarma!</string>
     <string name="terminal_dp">Terminal:</string>

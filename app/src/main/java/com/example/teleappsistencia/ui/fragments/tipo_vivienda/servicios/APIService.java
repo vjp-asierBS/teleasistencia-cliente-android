@@ -1,7 +1,10 @@
-package com.example.teleappsistencia.servicios;
+package com.example.teleappsistencia.ui.fragments.tipo_vivienda.servicios;
 
+import com.example.teleappsistencia.modelos.Agenda;
 import com.example.teleappsistencia.modelos.CentroSanitario;
+import com.example.teleappsistencia.modelos.HistoricoAgendaLlamadas;
 import com.example.teleappsistencia.modelos.RecursoComunitario;
+import com.example.teleappsistencia.modelos.TipoAgenda;
 import com.example.teleappsistencia.modelos.TipoModalidadPaciente;
 import com.example.teleappsistencia.modelos.TipoRecursoComunitario;
 import com.example.teleappsistencia.modelos.Token;
@@ -656,6 +659,51 @@ public interface APIService {
 
     @DELETE("api-rest/tipo_alarma/{id}")
     public Call<ResponseBody> deleteTipoAlarmabyId(@Path("id") int id, @Header("Authorization") String token);
+
+    /* Peticiones Agenda */
+    @GET("api-rest/agenda")
+    public Call<List<Object>> getAgendas(@Header("Authorization") String token);
+
+    @GET("api-rest/agenda/{id_paciente}")
+    public Call<Agenda> getAgendaByIdPaciente(@Path("id_paciente") int id, @Header("Authorization") String token);
+
+    @GET("/api-rest/agenda/{id_tipo_agenda}")
+    public Call<List<Object>> getAgendasByIdTipoAgenda(@Path("id_tipo_agenda") int id, @Header("Authorization") String token);
+
+    @GET("/api-rest/agenda")
+    public Call<List<Object>> getAgendasByFechaResolucion(@Query("fecha_resolucion") String fecha, @Header("Authorization") String token);
+
+    @GET("/api-rest/agenda")
+    public Call<List<Object>> getAgendasByFechaPrevista(@Query("fecha_prevista") String fecha, @Header("Authorization") String token);
+
+    @POST("api-rest/agenda")
+    public Call<Agenda> addAgenda(@Body Agenda agenda, @Header("Authorization") String token);
+
+    @PUT("api-rest/agenda/{id}")
+    public Call<ResponseBody> actualizarAgenda(@Path("id") int id, @Header("Authorization") String token, @Body Agenda agenda);
+
+    @DELETE("api-rest/agenda/{id}")
+    public Call<ResponseBody> deleteAgendabyId(@Path("id") int id, @Header("Authorization") String token);
+
+    /* Peticiones Tipo Agenda */
+    @GET("api-rest/tipo_agenda")
+    public Call<List<Object>> getTiposAgenda(@Header("Authorization") String token);
+
+    @GET("/api-rest/tipo_agenda/{importancia}")
+    public Call<List<Object>> getTiposAgendaByImportancia(@Path("importancia") String importancia, @Header("Authorization") String token);
+
+    @POST("api-rest/tipo_agenda")
+    public Call<TipoAgenda> addTipoAgenda(@Body TipoAgenda tipoAgenda, @Header("Authorization") String token);
+
+    @PUT("api-rest/tipo_agenda/{id}")
+    public Call<ResponseBody> actualizarTipoAgenda(@Path("id") int id, @Header("Authorization") String token, @Body TipoAgenda tipoAgenda);
+
+    @DELETE("api-rest/tipo_agenda/{id}")
+    public Call<ResponseBody> deleteTipoAgendabyId(@Path("id") int id, @Header("Authorization") String token);
+
+    /* Peticiones Historico Agenda Llamadas*/
+    @POST("api-rest/historico_agenda_llamadas")
+    public Call<HistoricoAgendaLlamadas> addHistoricoAgendaLlamadas(@Body HistoricoAgendaLlamadas historicoAgendaLlamadas, @Header("Authorization") String token);
 
 
     /* Peticiones Centro_sanitario_en_alarma */
